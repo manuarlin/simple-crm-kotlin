@@ -10,15 +10,15 @@ import kotlin.streams.toList
 class CustomerService(val customerRepository: CustomerRepository) : ICustomerService {
 
     override fun findAll(): List<Customer> {
-        return customerRepository.findAll().stream().map { Customer(it) }.toList()
+        return customerRepository.findAll().map { Customer(it) }
     }
 
     override fun findByLastNameIgnoreCase(lastName: String): List<Customer> {
-        return customerRepository.findByLastNameIgnoreCase(lastName).stream().map { Customer(it) }.toList()
+        return customerRepository.findByLastNameIgnoreCase(lastName).map { Customer(it) }
     }
 
     override fun findByLastNameAndFirstName(lastName: String, firstName: String): List<Customer> {
-        return customerRepository.findByLastNameIgnoreCaseAndFirstNameIgnoreCase(lastName, firstName).stream().map { Customer(it) }.toList()
+        return customerRepository.findByLastNameIgnoreCaseAndFirstNameIgnoreCase(lastName, firstName).map { Customer(it) }
     }
 
     override fun findById(id: String): Optional<Customer> {

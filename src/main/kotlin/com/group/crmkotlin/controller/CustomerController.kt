@@ -57,7 +57,7 @@ class CustomerController(val customerService: ICustomerService) {
     @RequestMapping("/customers/totals")
     fun getTop(): List<Price> {
         val customers = customerService.findAll()
-        val totals = customers.stream().map { customer -> findTotalByCustomer(customer.id.toString()) }.toList()
+        val totals = customers.map { customer -> findTotalByCustomer(customer.id.toString()) }
         return totals.reversed()
 
     }
