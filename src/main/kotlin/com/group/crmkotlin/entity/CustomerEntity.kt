@@ -2,7 +2,9 @@ package com.group.crmkotlin.entity
 
 import javax.persistence.*
 
-class CustomerEntity(
+@Entity
+@Table(name = "customer")
+data class CustomerEntity(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         val id: Long = 0,
