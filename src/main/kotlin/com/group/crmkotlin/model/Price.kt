@@ -2,12 +2,12 @@ package com.group.crmkotlin.model
 
 class Price : Comparable<Price> {
 
-    var amount : Double?
-    set(value) {
-        if (value != null && value >= 0) {
-            field = value
+    var amount: Double?
+        set(value) {
+            if (value != null && value >= 0) {
+                field = value
+            }
         }
-    }
 
     constructor(_amount: Double) {
         amount = _amount

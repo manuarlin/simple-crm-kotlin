@@ -4,7 +4,6 @@ import com.group.crmkotlin.model.Customer
 import com.group.crmkotlin.repository.CustomerRepository
 import org.springframework.stereotype.Service
 import java.util.*
-import kotlin.streams.toList
 
 @Service
 class CustomerService(val customerRepository: CustomerRepository) : ICustomerService {
