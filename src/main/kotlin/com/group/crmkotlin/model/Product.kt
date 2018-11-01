@@ -1,7 +1,12 @@
 package com.group.crmkotlin.model
 
-class Product(val id: Long,
-                   val description: String?,
-                   val price: Price?) {
+import com.group.crmkotlin.entity.ProductEntity
 
+class Product(val id: Long,
+              val description: String?,
+              val price: Price?) {
+
+    constructor(productEntity: ProductEntity) : this(productEntity.id,
+            productEntity.description,
+            if (productEntity.price != null) Price(productEntity.price) else null)
 }
