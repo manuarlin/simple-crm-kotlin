@@ -17,7 +17,7 @@ class CustomerService(val customerRepository: CustomerRepository) : ICustomerSer
     }
 
     override fun findByLastNameAndFirstName(lastName: String, firstName: String): List<Customer> {
-        return customerRepository.findByLastNameIgnoreCaseAndFirstNameIgnoreCase(lastName, firstName).map { Customer(it) }
+        return customerRepository.findByLastNameIgnoreCaseAndFirstNameIgnoreCase(firstName = firstName, lastName = lastName).map { Customer(it) }
     }
 
     override fun findById(id: String): Optional<Customer> {
