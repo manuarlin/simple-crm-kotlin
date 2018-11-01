@@ -11,7 +11,7 @@ class ProductController(val productService: IProductService) {
     @RequestMapping("/products/{id}/price")
     fun findProductPriceById(@PathVariable id: String): String {
         val optionalProduct = productService.findById(id)
-        return optionalProduct.map { product -> "Le prix est de " + product.getPriceLabel() }.orElse("Produit inconnu")
+        return optionalProduct.map { "Le prix est de ${it.getPriceLabel()}" }.orElse("Produit inconnu")
     }
 
 }
